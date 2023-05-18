@@ -15,7 +15,9 @@ namespace AutoSizeHelper
     }
     /// <summary>
     /// 分辨率自适应辅助类。
-    /// 当一个窗体或控件发生大小变化时，其内部的多数控件会根据其在原设计器中的位置和大小比例进行自适应变化
+    /// 当一个窗体或控件发生大小变化时，其内部的多数控件要根据其在原设计器中的位置和大小比例进行自适应变化，
+    /// 变化后，内部控件所在的位置，大小和字体依旧与原设计器中的布局相符。
+    /// 这是分辨率自适应的一种解决方案，也是该辅助类采用的实现思路。
     /// </summary>
     public class AutoSizeHelper
     {
@@ -32,7 +34,8 @@ namespace AutoSizeHelper
             ContainerDesignSizes = new Dictionary<string, Size>();
         }
         /// <summary>
-        /// 设置容器。当容器触发SizeChanged事件时，容器内的控件会自动进行大小，位置和字体属性的自适应变化。
+        /// 设置容器。当容器触发SizeChanged事件时，容器内的控件会进行大小，位置和字体属性的自适应变化。
+        /// 注意，调用该方法后无需再手动为容器绑定SizeChanged事件，在该方法内部已经为容器的SizeChanged事件绑定UpdateControls()方法
         /// </summary>
         /// <param name="container">容器</param>
         public void SetContainer(Control container)

@@ -17,7 +17,6 @@
     <PackageProjectUrl>https://github.com/hlz2516/Winform.AutoSizeHelper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/hlz2516/Winform.AutoSizeHelper</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
