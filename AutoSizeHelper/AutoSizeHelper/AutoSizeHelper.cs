@@ -89,7 +89,7 @@ namespace AutoSizeHelper
                     yRate = curCtrl.Location.Y * 1.0 / curCtrl.Parent.Height,
                     wRate = curCtrl.Width * 1.0 / curCtrl.Parent.Width,
                     hRate = curCtrl.Height * 1.0 / curCtrl.Parent.Height,
-                    fontRate = curCtrl.Font.Size / _container.Height
+                    fontRate = curCtrl.Font.Size / Math.Min(_container.Height,_container.Width)
                 };
                 scaleMap[curCtrl.Name] = scaleRate;
             }
@@ -137,7 +137,8 @@ namespace AutoSizeHelper
                     int newY = (int)Math.Round(scaleRate.yRate * curCtrl.Parent.Height);
                     int newW = (int)Math.Round(scaleRate.wRate * curCtrl.Parent.Width);
                     int newH = (int)Math.Round(scaleRate.hRate * curCtrl.Parent.Height);
-                    float newFont = (float)Math.Round(scaleRate.fontRate * _container.Height, 2);
+                    float newFont = (float)Math.Round(scaleRate.fontRate *
+                        Math.Min(_container.Height,_container.Width) , 2);
 
                     curCtrl.Width = newW;
                     curCtrl.Height = newH;
@@ -168,7 +169,7 @@ namespace AutoSizeHelper
                     yRate = ctrl.Location.Y * 1.0 / parentDesignSize.Height,
                     wRate = ctrl.Width * 1.0 / parentDesignSize.Width,
                     hRate = ctrl.Height * 1.0 / parentDesignSize.Height,
-                    fontRate = ctrl.Font.Size / _container.Height
+                    fontRate = ctrl.Font.Size / Math.Min(_container.Height, _container.Width)
                 };
                 scaleMap[ctrl.Name] = scaleRate;
             }
