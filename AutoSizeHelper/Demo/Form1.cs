@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using AutoSizeTools;
 
 namespace Demo
 {
     public partial class Form1 : Form
     {
-        AutoSizeHelper.AutoSizeHelper helper;
+        AutoSizeHelper helper;
         public Form1()
         {
             InitializeComponent();
-            helper = new AutoSizeHelper.AutoSizeHelper();
+            helper = new AutoSizeHelper();
             helper.SetContainer(this);
         }
 

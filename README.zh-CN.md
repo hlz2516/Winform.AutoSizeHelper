@@ -19,13 +19,19 @@
 ![step1](./pictures/step1.png)
 
 2. 创建AutoSizeHelper并在Form1的构造函数中设置容器
+
 ```
-AutoSizeHelper.AutoSizeHelper helper;
-public Form1()
-{
-    InitializeComponent();
-    helper = new AutoSizeHelper.AutoSizeHelper();
-    helper.SetContainer(this);
+using AutoSizeTools;
+namespace XXX{
+  public partial class Form1 : Form{
+    AutoSizeHelper helper;
+    public Form1()
+    {
+        InitializeComponent();
+        helper = new AutoSizeHelper();
+        helper.SetContainer(this);
+    }
+  }
 }
 ```
 
@@ -43,10 +49,8 @@ private void button6_Click(object sender, EventArgs e)
     newBtn.Location = new Point(568, 12);
     newBtn.Size = new System.Drawing.Size(75, 23);
     newBtn.Text = "button7";
-    //计算Button6的字体大小比例，将其应用到新按钮的字体大小上，以保持字体大小的一致性
-    float fontRate = button6.Font.Size / this.Height;
-    float newBtnSize = (float)Math.Round(this.Height * fontRate);
-    newBtn.Font = new Font(button6.Font.FontFamily, newBtnSize);
+    //apply button6's font to newBtn font
+    newBtn.Font = new Font(button6.Font.FontFamily, button6.Font.Size);
     newBtn.UseVisualStyleBackColor = true;
     this.Controls.Add(newBtn);
     helper.AddNewControl(newBtn);

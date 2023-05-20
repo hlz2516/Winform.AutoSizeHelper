@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0-windows;net472;net40</TargetFrameworks>
     <LangVersion>10.0</LangVersion>
-    <RootNamespace>AutoSizeHelper</RootNamespace>
+    <RootNamespace>AutoSizeTools</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Winform.AutoSizeHelper</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Normal Hu</Authors>
     <Description>Control Layout Adaptive Resolution Assistant Class for Winform</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
