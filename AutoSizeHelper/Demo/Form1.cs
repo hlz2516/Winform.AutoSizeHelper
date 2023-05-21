@@ -8,6 +8,7 @@ namespace Demo
     public partial class Form1 : Form
     {
         AutoSizeHelper helper;
+
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +20,7 @@ namespace Demo
         {
             Button newBtn = new Button();
             newBtn.Name = "button7";
-            newBtn.Location = new Point(568, 12);
+            newBtn.Location = new Point(568, 1);
             newBtn.Size = new System.Drawing.Size(75, 23);
             newBtn.Text = "button7";
             //apply button6's font to newBtn font

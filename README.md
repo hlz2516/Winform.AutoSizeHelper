@@ -9,7 +9,7 @@ A Control Layout Adaptive Resolution Assistant Class for Winform.
 
 ## Function
 - When the size of container controls changes, the controls inside the container are arranged adaptively according to their original layout
-- When dynamically adding a new control within the container, the size and position can be adjusted to fit the layout by calling methods
+- When dynamically adding a new control within the container, the size,osition and font can be adjusted to fit the layout by calling methods
 - If there are nested layouts within the layout, the nested layouts will also be adaptive
 
 ## How To Use

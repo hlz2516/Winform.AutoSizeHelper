@@ -56,30 +56,30 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(390, 425);
+            this.panel1.Size = new System.Drawing.Size(390, 435);
             this.panel1.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(68, 298);
+            this.textBox1.Location = new System.Drawing.Point(188, 259);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 21);
+            this.textBox1.Size = new System.Drawing.Size(202, 21);
             this.textBox1.TabIndex = 6;
             this.textBox1.Text = "textbox";
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(167, 369);
+            this.numericUpDown1.Location = new System.Drawing.Point(-1, 414);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 21);
+            this.numericUpDown1.Size = new System.Drawing.Size(388, 21);
             this.numericUpDown1.TabIndex = 5;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(68, 233);
+            this.comboBox1.Location = new System.Drawing.Point(3, 233);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(219, 20);
+            this.comboBox1.Size = new System.Drawing.Size(186, 20);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.Text = "combobox";
             // 
@@ -105,9 +105,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(141, 92);
+            this.button1.Location = new System.Drawing.Point(3, 84);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(384, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(419, 13);
+            this.button2.Location = new System.Drawing.Point(401, 1);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -133,7 +133,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(713, 13);
+            this.button3.Location = new System.Drawing.Point(724, 1);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -142,7 +142,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(419, 414);
+            this.button4.Location = new System.Drawing.Point(401, 425);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 3;
@@ -151,7 +151,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(713, 414);
+            this.button5.Location = new System.Drawing.Point(724, 425);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 4;
@@ -170,7 +170,6 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button6);
