@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using AutoSizeTools;
 
-namespace Demo
+namespace Demo.basic_use
 {
     public partial class Form1 : Form
     {

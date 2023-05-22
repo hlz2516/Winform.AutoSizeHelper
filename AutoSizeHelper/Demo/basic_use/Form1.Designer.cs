@@ -1,4 +1,4 @@
-﻿namespace Demo
+﻿namespace Demo.basic_use
 {
     partial class Form1
     {

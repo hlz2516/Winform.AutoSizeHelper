@@ -34,7 +34,7 @@ namespace AutoSizeTools
         public void SetContainer(Control container)
         {
             _container = container;
-            //Console.WriteLine($"container design size:{container.Size}");
+
             _container.SizeChanged += (s, e) =>
             {
                 UpdateControls();
@@ -82,12 +82,12 @@ namespace AutoSizeTools
                 }
 
                 ScaleRate scaleRate = new ScaleRate();
-                if (curCtrl.Parent is Form)
+                if (curCtrl.Parent == _container && _container is Form)
                 {
-                    scaleRate.xRate = curCtrl.Location.X * 1.0 / curCtrl.Parent.ClientSize.Width;
-                    scaleRate.yRate = curCtrl.Location.Y * 1.0 / curCtrl.Parent.ClientSize.Height;
-                    scaleRate.wRate = curCtrl.Width * 1.0 / curCtrl.Parent.ClientSize.Width;
-                    scaleRate.hRate = curCtrl.Height * 1.0 / curCtrl.Parent.ClientSize.Height;
+                    scaleRate.xRate = curCtrl.Location.X * 1.0 / formDesignedSize.Width;
+                    scaleRate.yRate = curCtrl.Location.Y * 1.0 / formDesignedSize.Height;
+                    scaleRate.wRate = curCtrl.Width * 1.0 / formDesignedSize.Width;
+                    scaleRate.hRate = curCtrl.Height * 1.0 / formDesignedSize.Height;
                     scaleRate.fontRate = curCtrl.Font.Size / Math.Min(_container.Height, _container.Width);
                 }
                 else
@@ -142,12 +142,12 @@ namespace AutoSizeTools
                     var scaleRate = scaleMap[curCtrl.Name];
                     int newX,newY, newW, newH;
                     float newFont;
-                    if (curCtrl.Parent is Form)
+                    if (curCtrl.Parent == _container && _container is Form)
                     {
-                        newX = (int)Math.Round(scaleRate.xRate * curCtrl.Parent.ClientSize.Width);
-                        newY = (int)Math.Round(scaleRate.yRate * curCtrl.Parent.ClientSize.Height);
-                        newW = (int)Math.Round(scaleRate.wRate * curCtrl.Parent.ClientSize.Width);
-                        newH = (int)Math.Round(scaleRate.hRate * curCtrl.Parent.ClientSize.Height);
+                        newX = (int)Math.Round(scaleRate.xRate * _container.ClientSize.Width);
+                        newY = (int)Math.Round(scaleRate.yRate * _container.ClientSize.Height);
+                        newW = (int)Math.Round(scaleRate.wRate * _container.ClientSize.Width);
+                        newH = (int)Math.Round(scaleRate.hRate * _container.ClientSize.Height);
                         newFont = (float)Math.Round(scaleRate.fontRate *
                             Math.Min(_container.Height, _container.Width), 2);
                     }
@@ -180,7 +180,7 @@ namespace AutoSizeTools
             if (ctrl.Parent != null)
             {
                 ScaleRate scaleRate = new ScaleRate();
-                if (ctrl.Parent is Form)
+                if (ctrl.Parent == _container && _container is Form)
                 {
                     scaleRate.xRate = ctrl.Location.X * 1.0 / formDesignedSize.Width;
                     scaleRate.yRate = ctrl.Location.Y * 1.0 / formDesignedSize.Height;
@@ -190,8 +190,7 @@ namespace AutoSizeTools
                 }
                 else
                 {
-                    string parentName = ctrl.Parent.Name;
-                    Size parentDesignSize = ContainerDesignSizes[parentName];
+                    Size parentDesignSize = ContainerDesignSizes[ctrl.Parent.Name];
                     scaleRate.xRate = ctrl.Location.X * 1.0 / parentDesignSize.Width;
                     scaleRate.yRate = ctrl.Location.Y * 1.0 / parentDesignSize.Height;
                     scaleRate.wRate = ctrl.Width * 1.0 / parentDesignSize.Width;

@@ -11,6 +11,7 @@ A Control Layout Adaptive Resolution Assistant Class for Winform.
 - When the size of container controls changes, the controls inside the container are arranged adaptively according to their original layout
 - When dynamically adding a new control within the container, the size,osition and font can be adjusted to fit the layout by calling methods
 - If there are nested layouts within the layout, the nested layouts will also be adaptive
+- autosize the listview(only column width)
 
 ## How To Use
 
@@ -18,7 +19,14 @@ A Control Layout Adaptive Resolution Assistant Class for Winform.
 1. Design your Form in Form Designer,for example:  
 ![step1](./pictures/step1.png)
 
-2. Create  a AutoSizeHelper and set the container in Form1's constructor
+2. Close the AutoScaleMode property in Form manually.
+ Find Form1.Designer.cs and open it, press Ctrl + F to search string:"AutoScaleMode",then you can see :
+ ```
+ this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+ ```
+ Modify it to System.Windows.Forms.AutoScaleMode.None.
+
+3. Create  a AutoSizeHelper and set the container in Form1's constructor
 ```
 using AutoSizeTools;
 namespace XXX{
@@ -34,7 +42,7 @@ namespace XXX{
 }
 ```
 
-3. Run your application,and maximize the application window,then you can see:
+4. Run your application,and maximize the application window,then you can see:
 ![step3](./pictures/step3.png)
 
 ### Dynamically Adding New Controls
@@ -61,3 +69,5 @@ private void button6_Click(object sender, EventArgs e)
 
 2. Run the application,click button6,you can see button7 showed between button2 and button3.
 then you can maximize or minimize the application window,the button7 always adapt to the current layout.
+
+For more examples, please see github repository.
