@@ -8,10 +8,10 @@ A Control Layout Adaptive Resolution Assistant Class for Winform.
 - Nuget:  https://www.nuget.org/packages/Winform.AutoSizeHelper 
 
 ## Function
-- When the size of container controls changes, the controls inside the container are arranged adaptively according to their original layout
-- When dynamically adding a new control within the container, the size,osition and font can be adjusted to fit the layout by calling methods
+- When the container control changes its size, the controls inside the container are arranged adaptively according to their original layout
+- When dynamically adding a new control within the container, the size,position and font can be adjusted to fit the layout by calling methods
 - If there are nested layouts within the layout, the nested layouts will also be adaptive
-- autosize the listview(only column width)
+- support autosize the listview(only column width)
 
 ## How To Use
 
@@ -19,8 +19,8 @@ A Control Layout Adaptive Resolution Assistant Class for Winform.
 1. Design your Form in Form Designer,for example:  
 ![step1](./pictures/step1.png)
 
-2. Close the AutoScaleMode property in Form manually.
- Find Form1.Designer.cs and open it, press Ctrl + F to search string:"AutoScaleMode",then you can see :
+2. Disable the AutoScaleMode property in Form manually.
+ Find Form1.Designer.cs and open it, press Ctrl + F to search string:"AutoScaleMode",then you can see this line:
  ```
  this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
  ```

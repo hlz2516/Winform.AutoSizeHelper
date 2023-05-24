@@ -129,6 +129,10 @@ namespace AutoSizeTools
 
                 foreach (Control ctrl in curCtrl.Controls)
                 {
+                    if (ctrl is Form)
+                    {
+                        continue;
+                    }
                     queue.Enqueue(ctrl);
                 }
 

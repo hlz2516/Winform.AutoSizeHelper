@@ -8,7 +8,7 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Winform.AutoSizeHelper</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.5</Version>
     <Authors>Normal Hu</Authors>
     <Description>Control Layout Adaptive Resolution Assistant Class for Winform</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
