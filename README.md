@@ -71,3 +71,9 @@ private void button6_Click(object sender, EventArgs e)
 then you can maximize or minimize the application window,the button7 always adapt to the current layout.
 
 For more examples, please see github repository.
+
+## Tips
+
+- There are some differences between version 1.05 and previous versions(1.0.0~1.0.3).
+Specifically,I added the AutoSizeHelperEx class in version 1.0.5, which allows you to adjust the font scaling ratio on different resolution screens
+- this tool is suitable for Third party package's Multi page framework(e.g SunnyUI)

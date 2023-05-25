@@ -73,6 +73,12 @@
     <Compile Include="add_a_form\InnerForm.Designer.cs">
       <DependentUpon>InnerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ajdust_font\FontForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ajdust_font\FontForm.Designer.cs">
+      <DependentUpon>FontForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="basic_use\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <EmbeddedResource Include="add_a_form\InnerForm.resx">
       <DependentUpon>InnerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ajdust_font\FontForm.resx">
+      <DependentUpon>FontForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="basic_use\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +113,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="table_autosize\TableForm.resx">
       <DependentUpon>TableForm.cs</DependentUpon>
@@ -139,6 +149,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Snipaste_2023-05-25_12-57-36.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

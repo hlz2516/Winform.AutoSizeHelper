@@ -1,4 +1,5 @@
 ﻿using Demo.add_a_form;
+using Demo.ajdust_font;
 using Demo.basic_use;
 using Demo.table_autosize;
 using System;
@@ -19,7 +20,7 @@ namespace Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FontForm());
         }
     }
 }
