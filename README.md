@@ -35,8 +35,7 @@ namespace XXX{
     public Form1()
     {
         InitializeComponent();
-        helper = new AutoSizeHelper();
-        helper.SetContainer(this);
+        helper = new AutoSizeHelper(this);
     }
   }
 }
@@ -69,6 +68,26 @@ private void button6_Click(object sender, EventArgs e)
 
 2. Run the application,click button6,you can see button7 showed between button2 and button3.
 then you can maximize or minimize the application window,the button7 always adapt to the current layout.
+
+### Use AutoSizeHelperEx
+There are some differences in using AutoSizeHelper and AutoSizeHelperEx.
+When using AutoSizeHelperEx, it should be noted that you need to call the UpdateControls method in the sizechanged event handler of the form.Such like this(this example is from demo--adjust_font):
+```
+private void FontForm_SizeChanged(object sender, EventArgs e)
+{
+    Size screenSize = Screen.PrimaryScreen.Bounds.Size;
+    if (screenSize == new Size(1920,1080)) 
+    {
+        helper.FontAdjustRate = 1.0f;
+    }
+    else if (screenSize == new Size(1280, 960))  
+    {
+        helper.FontAdjustRate = 0.8f; 
+    }
+    helper.UpdateControls(); // call this method to refresh UI
+}
+```
+The other uses of AutoSizeHelperEx are consistent with AutoSizeHelper.
 
 For more examples, please see github repository.
 
