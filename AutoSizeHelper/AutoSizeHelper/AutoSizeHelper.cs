@@ -101,7 +101,7 @@ namespace AutoSizeTools
                     scaleRate.yRate = curCtrl.Location.Y * 1.0 / formDesignedSize.Height;
                     scaleRate.wRate = curCtrl.Width * 1.0 / formDesignedSize.Width;
                     scaleRate.hRate = curCtrl.Height * 1.0 / formDesignedSize.Height;
-                    scaleRate.fontRate = curCtrl.Font.Size / Math.Min(_container.Height, _container.Width);
+                    //scaleRate.fontRate = curCtrl.Font.Size / Math.Min(_container.Height, _container.Width);
                 }
                 else
                 {
@@ -109,7 +109,7 @@ namespace AutoSizeTools
                     scaleRate.yRate = curCtrl.Location.Y * 1.0 / curCtrl.Parent.Height;
                     scaleRate.wRate = curCtrl.Width * 1.0 / curCtrl.Parent.Width;
                     scaleRate.hRate = curCtrl.Height * 1.0 / curCtrl.Parent.Height;
-                    scaleRate.fontRate = curCtrl.Font.Size / Math.Min(_container.Height, _container.Width);
+                    //scaleRate.fontRate = curCtrl.Font.Size / Math.Min(_container.Height, _container.Width);
                 }
 
                 scaleMap[curCtrl.Name] = scaleRate;
@@ -146,7 +146,7 @@ namespace AutoSizeTools
                     {
                         continue;
                     }
-                    if (ctrl.Parent is UserControl)
+                    if (ctrl.Parent is UserControl && !(_container is UserControl))
                     {
                         continue;
                     }
@@ -169,8 +169,8 @@ namespace AutoSizeTools
                         newY = (int)Math.Round(scaleRate.yRate * _container.ClientSize.Height);
                         newW = (int)Math.Round(scaleRate.wRate * _container.ClientSize.Width);
                         newH = (int)Math.Round(scaleRate.hRate * _container.ClientSize.Height);
-                        newFont = (float)Math.Round(scaleRate.fontRate *
-                            Math.Min(_container.Height, _container.Width), 2);
+                        //newFont = (float)Math.Round(scaleRate.fontRate *
+                        //    Math.Min(_container.Height, _container.Width), 2);
                     }
                     else
                     {
@@ -178,14 +178,14 @@ namespace AutoSizeTools
                         newY = (int)Math.Round(scaleRate.yRate * curCtrl.Parent.Height);
                         newW = (int)Math.Round(scaleRate.wRate * curCtrl.Parent.Width);
                         newH = (int)Math.Round(scaleRate.hRate * curCtrl.Parent.Height);
-                        newFont = (float)Math.Round(scaleRate.fontRate *
-                            Math.Min(_container.Height, _container.Width), 2);
+                        //newFont = (float)Math.Round(scaleRate.fontRate *
+                        //    Math.Min(_container.Height, _container.Width), 2);
                     }
 
                     curCtrl.Width = newW;
                     curCtrl.Height = newH;
                     curCtrl.Location = new Point(newX, newY);
-                    curCtrl.Font = new Font(curCtrl.Font.FontFamily, newFont);
+                    //curCtrl.Font = new Font(curCtrl.Font.FontFamily, newFont);
                 }
             }
 
@@ -207,7 +207,7 @@ namespace AutoSizeTools
                     scaleRate.yRate = ctrl.Location.Y * 1.0 / formDesignedSize.Height;
                     scaleRate.wRate = ctrl.Width * 1.0 / formDesignedSize.Width;
                     scaleRate.hRate = ctrl.Height * 1.0 / formDesignedSize.Height;
-                    scaleRate.fontRate = ctrl.Font.Size / Math.Min(_container.Height, _container.Width);
+                    //scaleRate.fontRate = ctrl.Font.Size / Math.Min(_container.Height, _container.Width);
                 }
                 else
                 {
@@ -216,7 +216,7 @@ namespace AutoSizeTools
                     scaleRate.yRate = ctrl.Location.Y * 1.0 / parentDesignSize.Height;
                     scaleRate.wRate = ctrl.Width * 1.0 / parentDesignSize.Width;
                     scaleRate.hRate = ctrl.Height * 1.0 / parentDesignSize.Height;
-                    scaleRate.fontRate = ctrl.Font.Size / Math.Min(_container.Height, _container.Width);
+                    //scaleRate.fontRate = ctrl.Font.Size / Math.Min(_container.Height, _container.Width);
                 }
 
                 scaleMap[ctrl.Name] = scaleRate;
