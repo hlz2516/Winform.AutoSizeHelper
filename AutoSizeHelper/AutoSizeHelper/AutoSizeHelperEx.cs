@@ -127,6 +127,10 @@ namespace AutoSizeTools
                     {
                         continue;
                     }
+                    if (ctrl.Parent is UserControl)
+                    {
+                        continue;
+                    }
                     queue.Enqueue(ctrl);
                 }
 
