@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoSizeTools
 {
-    public class AutoSizeHelperEx:AutoSizeHelper
+    public class AutoSizeHelperEx : AutoSizeHelper
     {
-        public float FontAdjustRate { get; set; } = 1.0f;
+        /// <summary>
+        /// The font scale rate.The value range is about from 0.1 to 1.5.
+        /// Value 0 means the font inside container does not scale.
+        /// </summary>
+        public float FontAdjustRate { get; set; } = 0;
 
         public AutoSizeHelperEx()
         {
@@ -127,7 +128,7 @@ namespace AutoSizeTools
                     {
                         continue;
                     }
-                    if (ctrl.Parent is UserControl)
+                    if (ctrl.Parent is UserControl && !(_container is UserControl))
                     {
                         continue;
                     }
@@ -166,7 +167,10 @@ namespace AutoSizeTools
                     curCtrl.Width = newW;
                     curCtrl.Height = newH;
                     curCtrl.Location = new Point(newX, newY);
-                    curCtrl.Font = new Font(curCtrl.Font.FontFamily, newFont);
+                    if (FontAdjustRate> 0)
+                    {
+                        curCtrl.Font = new Font(curCtrl.Font.FontFamily, newFont);
+                    }
                 }
             }
 

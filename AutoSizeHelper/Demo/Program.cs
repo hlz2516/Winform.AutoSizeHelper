@@ -1,6 +1,7 @@
 ﻿using Demo.add_a_form;
 using Demo.ajdust_font;
 using Demo.basic_use;
+using Demo.scale_usercontrol;
 using Demo.table_autosize;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FontForm());
+            Application.Run(new UserForm());
         }
     }
 }
