@@ -1,4 +1,5 @@
-﻿using Demo.add_a_form;
+﻿using Demo.Adapt_SunnyUI;
+using Demo.add_a_form;
 using Demo.ajdust_font;
 using Demo.basic_use;
 using Demo.scale_usercontrol;
@@ -21,7 +22,7 @@ namespace Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TableForm());
+            Application.Run(new FAsideHeaderMainFooter());
         }
     }
 }
