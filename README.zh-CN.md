@@ -110,8 +110,14 @@ private void button6_Click(object sender, EventArgs e)
 - 在16：9的显示器上，我的字体显示正常，但在4：3的显示器上，我的字体显示超出边界，怎么办？（参考adjust_font）
 - 在对窗体应用你的自适应帮助类后，有一部分自定义控件，它们自身大小是改变了，可是它们内部的子控件没有自适应变化，怎么办？（参考scale_usercontrol）
 
+## 请分析好你的界面情况再使用！！！
+
+在发布该类库一段时间后，我发现一些开发者滥用AutoSizeHelper/AutoSizeHelperEx的情况，从而导致一些意外错误反馈到我这里，因此，我特意加了这一小节，希望各位开发者分析清楚自己的界面情况后再决定哪些类该用自适应辅助功能，哪些类不该用，不要觉得我给每个窗体/控件类应用自适应辅助功能就OK了，事情没有你想的这么简单！  
+分辨的原则：**哪些窗体/控件在它自身大小改变后，它内部的直接子控件（我的意思是不用关心子控件的子控件）还是保持在它原来的相对位置上（直观表现就是每个直接子控件的location属性不变），这些窗体/控件类就需要应用自适应辅助功能，这种情况下你才需要用到自适应辅助类，并调用SetContainer方法来设置这些窗体/控件作为容器**。  
+再次强调：**不要滥用AutoSizeHelper/AutoSizeHelperEx！！！**
+
 ## 重要提示
 - 如果按照教程，仍然无法缩放，请检查每个应用了AutoSizeHelper/AutoSizeHelperEx的窗体/控件是否都设置了AutoScaleMode为none
-- new AutoSizeHelper/AutoSizeHelperEx这一操作必须跟在InitializeComponent方法之后。如果你想在添加一些控件之后再创建AutoSizeHelper/AutoSizeHelperEx，本类库不保证能正常执行
+- new AutoSizeHelper/AutoSizeHelperEx这一操作最好跟在InitializeComponent方法之后。如果你想在添加一些控件之后再创建AutoSizeHelper/AutoSizeHelperEx，本类库不保证能正常生效
 
 tips:当前中文版为最新版本，如果您觉得这个类对您有帮助，帮忙点个star让更多人看到，谢谢！
