@@ -7,13 +7,12 @@ namespace Demo.basic_use
 {
     public partial class Form1 : Form
     {
-        AutoSizeHelper helper;
+        AutoSizeHelperEx helper;
 
         public Form1()
         {
             InitializeComponent();
-            helper = new AutoSizeHelper();
-            helper.SetContainer(this);
+            helper = new AutoSizeHelperEx(this);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -28,6 +27,11 @@ namespace Demo.basic_use
             newBtn.UseVisualStyleBackColor = true;
             this.Controls.Add(newBtn);
             helper.AddNewControl(newBtn);
+            helper.UpdateControls();
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
             helper.UpdateControls();
         }
     }

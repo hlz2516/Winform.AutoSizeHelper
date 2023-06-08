@@ -73,10 +73,10 @@
     <Compile Include="add_a_form\InnerForm.Designer.cs">
       <DependentUpon>InnerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ajdust_font\FontForm.cs">
+    <Compile Include="adjust_font\FontForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ajdust_font\FontForm.Designer.cs">
+    <Compile Include="adjust_font\FontForm.Designer.cs">
       <DependentUpon>FontForm.cs</DependentUpon>
     </Compile>
     <Compile Include="basic_use\Form1.cs">
@@ -111,7 +111,7 @@
     <EmbeddedResource Include="add_a_form\InnerForm.resx">
       <DependentUpon>InnerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajdust_font\FontForm.resx">
+    <EmbeddedResource Include="adjust_font\FontForm.resx">
       <DependentUpon>FontForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="basic_use\Form1.resx">
