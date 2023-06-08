@@ -51,7 +51,7 @@ namespace XXX{
 ### 使用更加完善的AutoSizeHelperEx(推荐)
 
 AutoSizeHelper类只能处理一些简单的情况，对于稍微复杂一点的需求，就轮到更加完善的AutoSizeHelperEx类出场解决了。在演示之前，需要了解一下AutoSizeHelperEx与AutoSizeHelper的不同的一些地方：  
-1. AutoSizeHelperEx可以手动调整缩放时字体的缩放比例，而AutoSizeHelper在缩放时不会处理字体大小
+1. AutoSizeHelperEx可以手动调整缩放时字体的缩放比例，而AutoSizeHelper在缩放时不能处理字体大小
 2. 声明AutoSizeHelperEx变量的窗体/控件，必须自己绑定SizeChanged事件的处理程序，这样有个好处就是，你可以在处理程序里对不同分辨率屏幕做字体缩放比例的调整；而AutoSizeHelper在调用SetContainer时就自动为SizeChanged事件绑定了一个处理程序，所以使用AutoSizeHelper时用户不需要关心SizeChanged事件，但这样的代价是灵活性降低了
 
 **如何使用AutoSizeHelperEx**
