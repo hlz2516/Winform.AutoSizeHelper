@@ -81,6 +81,14 @@ namespace AutoSizeTools
 
                 foreach (Control ctrl in curCtrl.Controls)
                 {
+                    if (ctrl is Form)
+                    {
+                        continue;
+                    }
+                    if (ctrl.Parent is UserControl && !(_container is UserControl))
+                    {
+                        continue;
+                    }
                     queue.Enqueue(ctrl);
                 }
 
