@@ -19,18 +19,18 @@ namespace AutoSizeTools
         protected Control? _container;
         protected Dictionary<string, ScaleRate> scaleMap;
         protected Dictionary<string, Size> ContainerDesignSizes;
+        protected Dictionary<string, ScaleRate> toolStripScaleMap;
         protected Size formDesignedSize;
 
         public AutoSizeHelper()
         {
             scaleMap = new Dictionary<string, ScaleRate>();
             ContainerDesignSizes = new Dictionary<string, Size>();
+            toolStripScaleMap = new Dictionary<string, ScaleRate>();
         }
 
-        public AutoSizeHelper(Control container)
+        public AutoSizeHelper(Control container):this()
         {
-            scaleMap = new Dictionary<string, ScaleRate>();
-            ContainerDesignSizes = new Dictionary<string, Size>();
             SetContainer(container);
         }
 
@@ -63,6 +63,19 @@ namespace AutoSizeTools
                         wRate = col.Width * 1.0 / container.Width
                     };
                     scaleMap[col.Text] = scaleRate;
+                }
+                return;
+            }
+
+            if (container is ToolStrip)
+            {
+                ToolStrip toolStrip = container as ToolStrip;
+                foreach (ToolStripItem item in toolStrip.Items)
+                {
+                    var scaleRate = new ScaleRate();
+                    scaleRate.wRate = item.Width *1.0 / container.Width;
+                    scaleRate.hRate = item.Height * 1.0 / container.Height;
+                    toolStripScaleMap[item.Name] = scaleRate;
                 }
                 return;
             }
@@ -134,6 +147,7 @@ namespace AutoSizeTools
         /// </summary>
         public virtual void UpdateControls()
         {
+            _container.SuspendLayout();
             if (_container is ListView)
             {
                 ListView list = _container as ListView;
@@ -142,7 +156,22 @@ namespace AutoSizeTools
                     var scale = scaleMap[col.Text];
                     col.Width = (int)Math.Round(list.Width * scale.wRate);
                 }
-                _container.Invalidate();
+               // _container.Invalidate();
+               _container.ResumeLayout();
+                return;
+            }
+
+            if (_container is ToolStrip)
+            {
+                ToolStrip toolStrip = _container as ToolStrip;
+                foreach (ToolStripItem item in toolStrip.Items)
+                {
+                    var rate = toolStripScaleMap[item.Name];
+                    item.Width = (int)Math.Round(rate.wRate * _container.Width);
+                    item.Height = (int)Math.Round(rate.hRate * _container.Height);
+                }
+                //_container.Invalidate();
+                _container.ResumeLayout();
                 return;
             }
 
@@ -206,7 +235,8 @@ namespace AutoSizeTools
                 }
             }
 
-            _container.Invalidate();
+           // _container.Invalidate();
+           _container.ResumeLayout();
         }
 
         /// <summary>
