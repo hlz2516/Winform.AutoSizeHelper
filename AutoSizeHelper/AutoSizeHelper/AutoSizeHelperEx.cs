@@ -61,17 +61,21 @@ namespace AutoSizeTools
             {
                 Control curCtrl = queue.Dequeue();
 
-                foreach (Control ctrl in curCtrl.Controls)
+                foreach (object obj in curCtrl.Controls)
                 {
-                    if (ctrl is Form)
+                    if (obj is Control)
                     {
-                        continue;
+                        Control ctrl = obj as Control;
+                        if (ctrl is Form || ctrl is ToolStrip)
+                        {
+                            continue;
+                        }
+                        if (ctrl.Parent is UserControl && !(_container is UserControl))
+                        {
+                            continue;
+                        }
+                        queue.Enqueue(ctrl);
                     }
-                    if (ctrl.Parent is UserControl && !(_container is UserControl))
-                    {
-                        continue;
-                    }
-                    queue.Enqueue(ctrl);
                 }
 
                 if (curCtrl == _container)
@@ -79,7 +83,7 @@ namespace AutoSizeTools
                     continue;
                 }
 
-                if (curCtrl is ContainerControl || curCtrl is Panel)
+                if (curCtrl is GroupBox || curCtrl is Panel)
                 {
                     ContainerDesignSizes.Add(curCtrl.Name, curCtrl.Size);
                 }
@@ -130,17 +134,21 @@ namespace AutoSizeTools
             {
                 Control curCtrl = queue.Dequeue();
 
-                foreach (Control ctrl in curCtrl.Controls)
+                foreach (object obj in curCtrl.Controls)
                 {
-                    if (ctrl is Form)
+                    if (obj is Control)
                     {
-                        continue;
+                        Control ctrl = obj as Control;
+                        if (ctrl is Form || ctrl is ToolStrip)
+                        {
+                            continue;
+                        }
+                        if (ctrl.Parent is UserControl && !(_container is UserControl))
+                        {
+                            continue;
+                        }
+                        queue.Enqueue(ctrl);
                     }
-                    if (ctrl.Parent is UserControl && !(_container is UserControl))
-                    {
-                        continue;
-                    }
-                    queue.Enqueue(ctrl);
                 }
 
                 if (curCtrl == _container)
