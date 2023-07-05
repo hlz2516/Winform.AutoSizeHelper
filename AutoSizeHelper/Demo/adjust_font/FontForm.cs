@@ -25,7 +25,6 @@ namespace Demo.ajdust_font
             {
                 helper.FontAdjustRate = 0.8f; //when maximized,the word will overflow if you annotate this line
             }
-            helper.UpdateControls();
         }
     }
 }

@@ -13,19 +13,20 @@ namespace Demo.basic_use
         {
             InitializeComponent();
             helper = new AutoSizeHelperEx(this);
+            helper.FontAdjustRate = 1.1f;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             Button newBtn = new Button();
             newBtn.Name = "button7";
-            newBtn.Location = new Point(568, 1);
+            newBtn.Location = new Point(132, 39);
             newBtn.Size = new System.Drawing.Size(75, 23);
             newBtn.Text = "button7";
             //apply button6's font to newBtn font
             newBtn.Font = new Font(button6.Font.FontFamily, button6.Font.Size);
             newBtn.UseVisualStyleBackColor = true;
-            this.Controls.Add(newBtn);
+            groupBox1.Controls.Add(newBtn);
             helper.AddNewControl(newBtn);
             helper.UpdateControls();
         }
@@ -34,5 +35,6 @@ namespace Demo.basic_use
         {
             helper.UpdateControls();
         }
+
     }
 }

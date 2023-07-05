@@ -1,4 +1,4 @@
-﻿namespace Demo.adapt_toolstrip
+﻿namespace Demo.adapt_containers
 {
     partial class ToolStripForm
     {

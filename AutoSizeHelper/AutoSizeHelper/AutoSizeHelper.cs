@@ -156,7 +156,6 @@ namespace AutoSizeTools
                     var scale = scaleMap[col.Text];
                     col.Width = (int)Math.Round(list.Width * scale.wRate);
                 }
-               // _container.Invalidate();
                _container.ResumeLayout();
                 return;
             }
@@ -170,7 +169,6 @@ namespace AutoSizeTools
                     item.Width = (int)Math.Round(rate.wRate * _container.Width);
                     item.Height = (int)Math.Round(rate.hRate * _container.Height);
                 }
-                //_container.Invalidate();
                 _container.ResumeLayout();
                 return;
             }
@@ -235,7 +233,6 @@ namespace AutoSizeTools
                 }
             }
 
-           // _container.Invalidate();
            _container.ResumeLayout();
         }
 
