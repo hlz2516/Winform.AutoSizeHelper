@@ -1,5 +1,7 @@
 # Winform.AutoSizeHelper
 
+## 这个项目不再维护，新的替代品是[AutoScaleHelper](https://github.com/hlz2516/AutoScaleHelper)
+
 ## 介绍
 一个适用于Winform的控制布局自适应分辨率辅助类。  
 

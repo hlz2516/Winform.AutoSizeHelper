@@ -1,5 +1,7 @@
 # Winform.AutoSizeHelper
 
+## Tips:This project is no longer maintained,the new substitute is [AutoScaleHelper](https://github.com/hlz2516/AutoScaleHelper)
+
 ## Introduction
 A Control Layout Adaptive Resolution Assistant Class for Winform.  
 
