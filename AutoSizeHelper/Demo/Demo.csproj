@@ -129,10 +129,10 @@
     <Compile Include="Adapt_SunnyUI\Page3.Designer.cs">
       <DependentUpon>Page3.cs</DependentUpon>
     </Compile>
-    <Compile Include="adapt_toolstrip\ToolStripForm.cs">
+    <Compile Include="adapt_containers\ToolStripForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adapt_toolstrip\ToolStripForm.Designer.cs">
+    <Compile Include="adapt_containers\ToolStripForm.Designer.cs">
       <DependentUpon>ToolStripForm.cs</DependentUpon>
     </Compile>
     <Compile Include="add_a_form\FrameForm.cs">
@@ -209,7 +209,7 @@
     <EmbeddedResource Include="Adapt_SunnyUI\Page3.resx">
       <DependentUpon>Page3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="adapt_toolstrip\ToolStripForm.resx">
+    <EmbeddedResource Include="adapt_containers\ToolStripForm.resx">
       <DependentUpon>ToolStripForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="add_a_form\FrameForm.resx">

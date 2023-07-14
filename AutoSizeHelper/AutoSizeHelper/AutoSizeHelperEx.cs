@@ -7,11 +7,23 @@ namespace AutoSizeTools
 {
     public class AutoSizeHelperEx : AutoSizeHelper
     {
+        private float fontAdjustRate = 0;
         /// <summary>
-        /// The font scale rate.The value range is about from 0.1 to 1.5.
+        /// The font scale rate.The value range is about from 0.8 to 1.2.
         /// Value 0 means the font inside container does not scale.
         /// </summary>
-        public float FontAdjustRate { get; set; } = 0;
+        public float FontAdjustRate
+        {
+            get { return fontAdjustRate; }
+            set
+            {
+                fontAdjustRate = value;
+                if (_container != null)
+                {
+                    UpdateControls();
+                }
+            }
+        }
 
         public AutoSizeHelperEx()
         {
@@ -28,7 +40,7 @@ namespace AutoSizeTools
         /// <param name="container"></param>
         public override void SetContainer(Control container)
         {
-            if (container == null)
+            if (container == null || !(container is Control))
             {
                 return;
             }
@@ -45,6 +57,19 @@ namespace AutoSizeTools
                         wRate = col.Width * 1.0 / container.Width
                     };
                     scaleMap[col.Text] = scaleRate;
+                }
+                return;
+            }
+
+            if (container is ToolStrip)
+            {
+                ToolStrip toolStrip = container as ToolStrip;
+                foreach (ToolStripItem item in toolStrip.Items)
+                {
+                    var scaleRate = new ScaleRate();
+                    scaleRate.wRate = item.Width * 1.0 / container.Width;
+                    scaleRate.hRate = item.Height * 1.0 / container.Height;
+                    toolStripScaleMap[item.Name] = scaleRate;
                 }
                 return;
             }
@@ -115,6 +140,7 @@ namespace AutoSizeTools
         /// </summary>
         public override void UpdateControls()
         {
+            _container.SuspendLayout();
             if (_container is ListView)
             {
                 ListView list = _container as ListView;
@@ -123,7 +149,20 @@ namespace AutoSizeTools
                     var scale = scaleMap[col.Text];
                     col.Width = (int)Math.Round(list.Width * scale.wRate);
                 }
-                _container.Invalidate();
+                _container.ResumeLayout();
+                return;
+            }
+
+            if (_container is ToolStrip)
+            {
+                ToolStrip toolStrip = _container as ToolStrip;
+                foreach (ToolStripItem item in toolStrip.Items)
+                {
+                    var rate = toolStripScaleMap[item.Name];
+                    item.Width = (int)Math.Round(rate.wRate * _container.Width);
+                    item.Height = (int)Math.Round(rate.hRate * _container.Height);
+                }
+                _container.ResumeLayout();
                 return;
             }
 
@@ -190,7 +229,7 @@ namespace AutoSizeTools
                 }
             }
 
-            _container.Invalidate();
+            _container.ResumeLayout();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Demo.adapt_toolstrip
+﻿namespace Demo.adapt_containers
 {
     partial class ToolStripForm
     {
@@ -58,6 +58,7 @@
             // 
             // toolStripLabel1
             // 
+            this.toolStripLabel1.AutoSize = false;
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(96, 22);
             this.toolStripLabel1.Text = "toolStripLabel1";
@@ -69,34 +70,38 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(80, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(100, 22);
             this.toolStripButton1.Text = "测试按钮";
             // 
             // toolStripLabel2
             // 
+            this.toolStripLabel2.AutoSize = false;
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(96, 22);
             this.toolStripLabel2.Text = "toolStripLabel2";
             // 
             // toolStripComboBox1
             // 
+            this.toolStripComboBox1.AutoSize = false;
             this.toolStripComboBox1.Name = "toolStripComboBox1";
             this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
             // 
             // toolStripLabel3
             // 
+            this.toolStripLabel3.AutoSize = false;
             this.toolStripLabel3.Name = "toolStripLabel3";
             this.toolStripLabel3.Size = new System.Drawing.Size(96, 22);
             this.toolStripLabel3.Text = "toolStripLabel3";
             // 
             // toolStripTextBox1
             // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.toolStripTextBox1.AutoSize = false;
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
             // 
             // toolStripProgressBar1
             // 
+            this.toolStripProgressBar1.AutoSize = false;
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 22);
             // 

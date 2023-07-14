@@ -1,5 +1,5 @@
-﻿using Demo.Adapt_SunnyUI;
-using Demo.adapt_toolstrip;
+﻿using Demo.adapt_containers;
+using Demo.Adapt_SunnyUI;
 using Demo.add_a_form;
 using Demo.ajdust_font;
 using Demo.basic_use;
@@ -23,7 +23,7 @@ namespace Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ToolStripForm());
+            Application.Run(new Form1());
         }
     }
 }

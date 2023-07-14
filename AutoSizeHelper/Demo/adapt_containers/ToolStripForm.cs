@@ -9,20 +9,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Demo.adapt_toolstrip
+namespace Demo.adapt_containers
 {
     public partial class ToolStripForm : Form
     {
-        AutoSizeHelperEx helper;
+        AutoSizeHelper helper;
+        AutoSizeHelperEx helper2;
         public ToolStripForm()
         {
             InitializeComponent();
-            helper = new AutoSizeHelperEx(this);
+            helper2 = new AutoSizeHelperEx(toolStrip1);
+            helper = new AutoSizeHelper(this);
         }
 
         private void ToolStripForm_SizeChanged(object sender, EventArgs e)
         {
-            helper.UpdateControls();
+            helper2.UpdateControls();
         }
     }
 }
